@@ -1,6 +1,7 @@
 package com.unideb.user.service.test;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import javax.persistence.NoResultException;
@@ -23,7 +24,7 @@ import com.unideb.prtprk.service.IUserService;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = com.unideb.prtprk.DemoApplication.class)
+@SpringBootTest(classes = com.unideb.prtprk.Main.class)
 // @ContextConfiguration
 @ComponentScan({ "com.unideb.prtprk.*" })
 @DataJpaTest
@@ -36,14 +37,7 @@ public class UserServiceTest {
 	@Autowired
 	IUserService userService;
 	
-	/**
-	 * test correct username and password.
-	 */
-	@Test
-	public void userLogInWithUsernameAndPassowrdTest() {
-	
-		assertTrue(userService.userLogInWithUsernameAndPassowrd("gagyinorbert", "teszt"));
-	}
+
 	
 	/**
 	 * test fake username and password.

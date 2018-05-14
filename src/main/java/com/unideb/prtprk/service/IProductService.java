@@ -53,4 +53,6 @@ public interface IProductService {
 	 * @return true if has at least one woman thing any way return false.
 	 */
 	public boolean hasWomanThings(List<Cart> carts);
+	
+	
 }

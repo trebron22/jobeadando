@@ -27,6 +27,7 @@ import com.unideb.prtprk.util.SessionUtil;
 
 /**
  * this is a rest home controller.
+ * 
  * @author gagyi.norbert
  *
  */
@@ -43,21 +44,25 @@ public class HomeController {
 	 */
 	@Autowired
 	IProductService productService;
-	
+
 	/**
 	 * userService is injected.
 	 */
 	@Autowired
 	private IUserService userService;
-	
 
 	/**
 	 * this function load the index page and the products.
-	 * @param session HttpSession.
-	 * @param response HttpServletResponse.
+	 * 
+	 * @param session
+	 *            HttpSession.
+	 * @param response
+	 *            HttpServletResponse.
 	 * @return the index jsp and the products.
-	 * @throws SQLException if the sqls wrong.
-	 * @throws JsonProcessingException if something wrong with json parse.
+	 * @throws SQLException
+	 *             if the sqls wrong.
+	 * @throws JsonProcessingException
+	 *             if something wrong with json parse.
 	 */
 	@RequestMapping(value = "/")
 	public ModelAndView showIndex(HttpSession session, HttpServletResponse response)
@@ -65,11 +70,12 @@ public class HomeController {
 		logger.info("< < < start show index showindex() > > >");
 		logger.info("<<>>><<<>>><<<<>>><<<>>><<<>>>");
 		logger.info("Session id: " + session.getId());
-		
+
 		Authentication auth = null;
-		
-		if( !SecurityContextHolder.getContext().getAuthentication().getName().equals("anonymousUser")) {
-			System.out.println("<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>" + SecurityContextHolder.getContext().getAuthentication().getName());
+
+		if (!SecurityContextHolder.getContext().getAuthentication().getName().equals("anonymousUser")) {
+			System.out.println("<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>"
+					+ SecurityContextHolder.getContext().getAuthentication().getName());
 			auth = SecurityContextHolder.getContext().getAuthentication();
 			User user = userService.getUserByUsername(auth.getName());
 			logger.info("Success log in");
@@ -80,11 +86,6 @@ public class HomeController {
 
 		SessionUtil.setProducts(session, products);
 
-		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-		String json = ow.writeValueAsString(products.get(0));
-
-		
-
 		response.addCookie(new Cookie("lastThreeItem", ""));
 
 		ModelAndView mv = new ModelAndView(JSPS.INDEX.getJsp());
@@ -92,5 +93,5 @@ public class HomeController {
 
 		return mv;
 	}
-	
+
 }

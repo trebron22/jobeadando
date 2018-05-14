@@ -36,7 +36,7 @@ import com.unideb.prtprk.util.SessionUtil;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = com.unideb.prtprk.DemoApplication.class)
+@SpringBootTest(classes = com.unideb.prtprk.Main.class)
 // @ContextConfiguration
 @ComponentScan({ "com.unideb.prtprk.*" })
 @DataJpaTest

@@ -54,6 +54,7 @@ public class ProductServiceImpl implements IProductService {
 		return false;
 	}
 	
+	@Override
 	public int getPrice(List<Cart> carts) {
 		int sum = 0;	
 		for(Cart cart : carts) {
