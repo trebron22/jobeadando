@@ -54,9 +54,11 @@
 				<version>2.21.0</version>
 				<configuration>
 					<showSuccess>true</showSuccess>
-					<includes> 
->                        <include>/src/main/test/*Test*.java</include> 
->                </includes> 
+					<includes>
+						>
+						<include>/src/main/test/*Test*.java</include>
+						>
+					</includes>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -91,7 +93,7 @@
 		</plugins>
 	</reporting>
 	<build>
-	<testSourceDirectory>src/main/test</testSourceDirectory> 
+		<testSourceDirectory>src/main/test</testSourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.jacoco</groupId>
@@ -220,6 +222,30 @@
 	</build>
 
 	<dependencies>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-assembly-plugin -->
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-assembly-plugin</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-enforcer-plugin -->
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-enforcer-plugin</artifactId>
+			<version>3.0.0-M1</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-checkstyle-plugin -->
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-checkstyle-plugin</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto -->
 
